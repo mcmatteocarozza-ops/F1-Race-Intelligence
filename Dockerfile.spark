@@ -1,0 +1,16 @@
+FROM apache/spark:4.0.1-python3
+
+USER root
+
+WORKDIR /app
+
+ENV SPARK_HOME=/opt/spark
+ENV PATH=/opt/spark/bin:$PATH
+
+RUN PY4J_ZIP=$(find /opt/spark/python/lib -maxdepth 1 -name 'py4j*-src.zip' -print -quit) \
+    && test -n "$PY4J_ZIP" \
+    && ln -s "$PY4J_ZIP" /opt/spark/python/lib/py4j-current.zip
+
+ENV PYTHONPATH=/opt/spark/python:/opt/spark/python/lib/py4j-current.zip:/app
+
+CMD ["/bin/bash"]

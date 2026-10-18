@@ -1,0 +1,25 @@
+# Ambiente Python
+.venv/
+__pycache__/
+*.pyc
+
+# Dati generati e dataset voluminosi
+/data/bronze/
+/data/silver/
+/data/gold/
+/data/raw/
+/data/streaming/
+
+# File locali e temporanei
+.env
+.env.*
+!.env.example
+.vscode/
+.idea/
+*.log
+struttura_progetto.txt
+requirements-full.txt
+
+# Cache
+.pytest_cache/
+.streamlit/secrets.toml

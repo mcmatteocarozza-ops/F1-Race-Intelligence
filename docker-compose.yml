@@ -1,0 +1,14 @@
+services:
+  spark:
+    build:
+      context: .
+      dockerfile: Dockerfile.spark
+    container_name: f1-spark
+    working_dir: /app
+    volumes:
+      - ./:/app
+    ports:
+      - "4040:4040"
+    stdin_open: true
+    tty: true
+    command: ["/bin/bash"]
