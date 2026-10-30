@@ -125,6 +125,12 @@ def render_driver_comparison(df):
             ignore_index=True,
         )
 
+        # Ordina cronologicamente i dati per pilota
+        chart_data = chart_data.sort_values(
+            by=["driver", "session_key"]
+        ).reset_index(drop=True)
+        
+
         # Ordine cronologico con session_key
         race_order = (
             chart_data[
